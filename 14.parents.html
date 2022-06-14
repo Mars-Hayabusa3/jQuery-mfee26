@@ -38,8 +38,12 @@
         // $('.item-001').parent(".level-3").css("border", "1px solid red");
         // $('.item-001').parents(".level-1").css("border", "1px solid orange");
         // $('.item-001').closest("li").css("border", "1px solid red");
-        $('.item-001').next().next().css("border", "1px solid aquamarine");
-        $('.item-003').prev().prev().css("border", "1px solid #E5E5E5");
+
+        // $('.item-001').next().next().css("border", "1px solid aquamarine");
+        // $('.item-003').prev().prev().css("border", "1px solid #E5E5E5");
+
+        $('.item-01').nextAll().css("border", "3px solid #E5E5E5");
+        $('.item-1').nextUntil(".item-3").css("border", "3px solid orange");
     </script>
 </body>
 
