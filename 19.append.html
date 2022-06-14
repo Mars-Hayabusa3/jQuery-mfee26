@@ -11,10 +11,14 @@
 <body>
     <div class="container">
         <div class="row">
+            <!-- before -->
             <ul>
+                <!-- prepend -->
                 <li>item1</li>
                 <li>item2</li>
+                <!-- append -->
             </ul>
+            <!-- after -->
         </div>
     </div>
 
@@ -22,6 +26,9 @@
     <script>
         const index = 3;
         $("ul").append(`<li>item${index}</li>`);
+
+        const zero = 0;
+        $("ul").prepend(`<li>item${zero}</li>`);
     </script>
 </body>
 
