@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn btn-info">detach</button>
+    <div class="container">
+        <div class="row flex-column">
+            <div class="hello">Hello World</div>
+            <div class="hello hello1">Hello World1</div>
+            <div class="hello2">Hello World2</div>
+        </div>
+    </div>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        let isDetached = false; // 全域變數, 內容若被清除為true, 沒被清除為false（也是起始值）
+        let myContent = null;
+        let index = 0;
+
+        $(".btn").click(function () {
+            if (isDetached) { // 第一次執行因為 isDetached = false 所以直接跳過這段
+                isDetached = false; // 第二次按button會進來這裡，讓是否detach這個函數變false，讓系統知道東西沒有被detach
+                $(".row").append(myContent); // 然後執行此程式，讓所有div( $(".row div" )用append的方式增加回來)
+            } else {
+                isDetached = true; // 第一次按button會進來這裡，讓是否detach這個函數變true，讓系統知道東西被detach
+                myContent = $(".row div").detach(); // 然後執行此程式，讓所有div消失
+            }
+        })
+    </script>
+</body>
+</html>
