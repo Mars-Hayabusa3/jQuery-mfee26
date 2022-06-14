@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="first">
+        <li class="a1">list item 1</li>
+        <li>list item 2</li>
+        <li class="a2">list item 3</li>
+    </ul>
+    <ul class="second">
+        <li class="b1">list item 1</li>
+        <li>list item 2</li>
+        <li class="b2">list item 3</li>
+    </ul>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $("ul.first").find(".a1").css("background", "red")
+            .end() // 停止現在做的事，回到上一個呼叫選取的人，即 ul.first
+            .next().css("background", "orange"); // next 指的是 ul.first 的下一個同類型元素．即 ul.second
+    </script>
+</body>
+
+</html>
