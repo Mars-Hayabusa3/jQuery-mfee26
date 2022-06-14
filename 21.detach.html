@@ -25,10 +25,10 @@
         $(".btn").click(function () {
             if (isDetached) { // 第一次執行因為 isDetached = false 所以直接跳過這段
                 isDetached = false; // 第二次按button會進來這裡，讓是否detach這個函數變false，讓系統知道東西沒有被detach
-                $(".row").append(myContent); // 然後執行此程式，讓所有div( $(".row div" )用append的方式增加回來)
+                $(".row").append(myContent); // 然後執行此程式，讓剪下的所有div（存在myContent函數裡）用append的方式增加回來
             } else {
                 isDetached = true; // 第一次按button會進來這裡，讓是否detach這個函數變true，讓系統知道東西被detach
-                myContent = $(".row div").detach(); // 然後執行此程式，讓所有div消失
+                myContent = $(".row div").detach(); // 然後執行此程式，剪下所有div
             }
         })
     </script>
