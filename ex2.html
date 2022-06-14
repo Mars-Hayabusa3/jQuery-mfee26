@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .box {
+            width: 250px;
+            height: 100px;
+            background: linear-gradient(-45deg, #EB9AEF, #FAC044);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="box col-3">box1</div>
+            <div class="box col-3">box2</div>
+            <div class="box col-3">box3</div>
+            <div class="box col-3">box4</div>
+            <div class="box col-3">box5</div>
+            <div class="box col-3">box6</div>
+            <div class="box col-3">box7</div>
+            <div class="box col-3">box8</div>
+            <div class="box col-3">box9</div>
+            <div class="box col-3">box10</div>
+            <div class="box col-3">box11</div>
+            <div class="box col-3">box12</div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        // TODO: 點下去一個後其餘全部變 lightblue
+        // nextAll()
+        // click ((e) => {});
+
+        $(".box").click((e) => {
+            // const currentBox = $(e.currentTarget);
+            // currentBox.nextAll().css("background", "lightblue");
+            console.log($(e.currentTarget));
+            $(e.currentTarget).nextAll().css("background", "lightblue");
+        });
+    </script>
+</body>
+
+</html>
