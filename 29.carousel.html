@@ -83,7 +83,51 @@
 
     <script src="./js/jquery-3.6.0.js"></script>
     <script>
+        // 輪播牆
+        // 滑鼠移動到指示點之後，火車要移動到相對應的位置
+        // 1.時機點： .slider-dots-area > li 被 mouseenter
+        // 2.移動到相對應的位置 (transform: translateX)
+        // 3.位置在哪？ 
+        // 整個 ul.train 變成一個一體的「牆」，一起移動，需要做的功能變成較單純的［移動位置］
+        // 0 -> 0px
+        // 1 -> -800px
+        // 2 -> -1600px, etc.
 
+        $(".slider-dots-area li").click(function () { // 或 .mouseenter(function() {});
+            console.log("Hi", $(this).index());
+
+            const moveX = $(this).index() * -800 + 'px';
+            $("ul.train").css("transform", `translateX(${moveX})`); // 要用大括號{}
+
+            $(this).css("background", "white")
+                .siblings().css("background", "transparent"); // siblings() 是函式，不要忘了()
+        });
+
+        // 暴力解法
+        // $(".slider-dots-area li:nth-child(1)").click(function () {
+        //     $("ul.train").css("transform", "translateX(0px)");
+        //     $(".slider-dots-area li:nth-child(1)").css("background", "#FFF");
+        // });
+
+        // $(".slider-dots-area li:nth-child(2)").click(function () {
+        //     $("ul.train").css("transform", "translateX(-800px)");
+        //     $(".slider-dots-area li:nth-child(2)").css("background", "#FFF");
+        // });
+
+        // $(".slider-dots-area li:nth-child(3)").click(function () {
+        //     $("ul.train").css("transform", "translateX(-1600px)");
+        //     $(".slider-dots-area li:nth-child(3)").css("background", "#FFF");
+        // });
+
+        // $(".slider-dots-area li:nth-child(4)").click(function () {
+        //     $("ul.train").css("transform", "translateX(-2400px)");
+        //     $(".slider-dots-area li:nth-child(4)").css("background", "#FFF");
+        // });
+
+        // $(".slider-dots-area li:nth-child(5)").click(function () {
+        //     $("ul.train").css("transform", "translateX(-3200px)");
+        //     $(".slider-dots-area li:nth-child(5)").css("background", "#FFF");
+        // });
     </script>
 </body>
 
