@@ -33,13 +33,19 @@
     <script>
         $(window).scroll(function () {
             console.log("scroll top:", $(window).scrollTop());
-            console.log("body height:", $("body").height());
-            console.log("%", $(window).scrollTop() / ($("body").height() - $(window).height()));
+            // console.log("body height:", $("body").height());
+            // console.log("%", $(window).scrollTop() / ($("body").height() - $(window).height()));
 
             const percentage = ($(window).scrollTop() / ($("body").height() - $(window).height())) * 100/* % */;
 
             $(".progressBar").css("width", `${percentage}%`);
-        })
+
+            if ($(window).scrollTop() > 450) {
+                $("body").css("background", "orange");
+            } else {
+                $("body").css("background", "transparent");
+            }
+        });
     </script>
 </body>
 </html>
