@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 300vw;
+            height: 300vh;
+        }
+    </style>
+</head>
+<body>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(window).scroll(function () {
+            console.log("Hi scroll top", $(window).scrollTop());
+            console.log("Hi scroll top", $(window).scrollTop());
+        });
+
+        $(window).resize(function () {
+            console.log("Hi width", $(window).width());
+            console.log("Hi height", $(window).height());
+        });
+    </script>
+</body>
+</html>
