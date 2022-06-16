@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #afa;
+        }
+
+        .box.active {
+            background-color: #faf;
+        }
+    </style>
+</head>
+<body>
+    <button id="addClass">add class</button>
+    <button id="rmClass">rm class</button>
+    <button id="toggleClass">toggle class</button>
+
+    <div class="box"></div>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $("#addClass").click(function () {
+            $(".box").addClass("active"); // 新增 class .active 內包含的 css
+        });
+
+        $("#rmClass").click(function () {
+            $(".box").removeClass("active"); // 移除 .active
+        });
+
+        $("#toggleClass").click(function () {
+            $(".box").toggleClass("active"); // 一鍵切換包含 .active 與否
+        });
+    </script>
+</body>
+</html>
