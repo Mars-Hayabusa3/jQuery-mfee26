@@ -23,7 +23,7 @@
             display: flex;
             width: 500%;
             transform: translateX(0px);
-            transition: .5s ease;
+            /* transition: .5s ease; */
         }
 
         .train li {
@@ -58,6 +58,18 @@
         .slider-dots-area li:nth-child(3) {
             background-color: #fff;
         }
+
+        .next-page-area {
+            background-color: #afa;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 10%;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -80,6 +92,8 @@
             <li></li>
             <li></li>
         </ul>
+
+        <div class="next-page-area"></div>
     </div>
 
     <script src="./js/jquery-3.6.0.js"></script>
@@ -94,41 +108,45 @@
         // 1 -> -800px
         // 2 -> -1600px, etc.
 
+        let nowPage = 1;
+        trainMove(nowPage);
         $(".slider-dots-area li").click(function () { // 或 .mouseenter(function() {});
             console.log("Hi", $(this).index());
 
-            const moveX = $(this).index() * -800 + 'px';
-            $("ul.train").css("transform", `translateX(${moveX})`); // 要用大括號{}
-
-            $(this).css("background", "white")
-                .siblings().css("background", "transparent"); // siblings() 是函式，不要忘了()
+            nowPage = $(this).index();
+            trainMove();
         });
 
-        // 暴力解法
-        // $(".slider-dots-area li:nth-child(1)").click(function () {
-        //     $("ul.train").css("transform", "translateX(0px)");
-        //     $(".slider-dots-area li:nth-child(1)").css("background", "#FFF");
-        // });
+        $(".next-page-area").click(function () {
+            console.log("next-page-area");
+            nowPage++;
+            trainMove();
+        });
 
-        // $(".slider-dots-area li:nth-child(2)").click(function () {
-        //     $("ul.train").css("transform", "translateX(-800px)");
-        //     $(".slider-dots-area li:nth-child(2)").css("background", "#FFF");
-        // });
+        function trainMove () {
+            const moveX = $(this).index() * -800 + 'px';
+            $("ul.train").css("transition", ".5s ease").css("transform", `translateX(${moveX})`); // 要用大括號{}
 
-        // $(".slider-dots-area li:nth-child(3)").click(function () {
-        //     $("ul.train").css("transform", "translateX(-1600px)");
-        //     $(".slider-dots-area li:nth-child(3)").css("background", "#FFF");
-        // });
+            $(".slider-dots-area li").eq(nowPage).css("background", "white")
+                .siblings().css("background", "transparent");
+        }
 
-        // $(".slider-dots-area li:nth-child(4)").click(function () {
-        //     $("ul.train").css("transform", "translateX(-2400px)");
-        //     $(".slider-dots-area li:nth-child(4)").css("background", "#FFF");
-        // });
+        function trainMoveWithoutTransition() {
+            console.log("nowPage", nowPage);
+            const moveX = $(this).index() * -800 + 'px';
+            $("ul.train").css("transition", "none").css("transform", `translateX(${moveX})`);
 
-        // $(".slider-dots-area li:nth-child(5)").click(function () {
-        //     $("ul.train").css("transform", "translateX(-3200px)");
-        //     $(".slider-dots-area li:nth-child(5)").css("background", "#FFF");
-        // });
+            $(".slider-dots-area li").eq(nowPage).css("background", "white")
+                .siblings().css("background", "transparent");
+        }
+
+        $("ul.train").on("transitionend", function () {
+            console.log("transition end nowPage", nowPage);
+            if (nowPage >= 5) {
+                nowPage = 0;
+                trainMoveWithoutTransition();
+            }
+        });
     </script>
 </body>
 

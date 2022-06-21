@@ -1,2 +1,4 @@
-practice
+
 .DS_Store
+/node_modules
+test.php

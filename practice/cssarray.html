@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #afa;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">box</div>
+
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script>
+        var style = {
+            background: "#faf",
+            width: "300px",
+            height: "300px",
+        }
+
+        var style_default = {
+            background: "#afa",
+            width: "200px",
+            height: "200px",
+        }
+
+        var x = 0;
+
+        $(".box").click(function () {
+            x = x + 1;
+            console.log(x);
+
+            if (x % 2 == 1) {
+                $(this).css(style);
+            } else {
+                $(this).css(style_default);
+            }
+        });
+    </script>
+</body>
+</html>

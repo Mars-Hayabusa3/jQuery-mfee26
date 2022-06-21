@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <table class="table table-bordered mt-3">
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>Simone de Beauvoir</td>
+                    <td>simonedebeauvoir@gmail.com</td>
+                    <td>+33 912345678</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>Jean-Paul Sartre</td>
+                    <td>jpsartre@gmail.com</td>
+                    <td>+33 912345678</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>François Truffaut</td>
+                    <td>francoistruffaut@gmail.com</td>
+                    <td>+33 912345678</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>Albert Camus</td>
+                    <td>albertcamus@gmail.com</td>
+                    <td>+33 912345678</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script>
+        $(":checkbox").click(function () {
+            console.log($(this).prop("checked"));
+            // 勾選時會在 console 出現 true，取消勾選時出現false
+
+            // 因為已過濾到剩兩種情形要處理，所以用 if - else 處理
+            if ($(this).prop("checked")) {
+                $(this).parent().parent().css("background", "linear-gradient(-45deg, #EB9AEF, #FAC044)");
+                // parent's' 是向上選取全部，parent 才是向上選取一層
+            } else {
+                $(this).parent().parent().css("background", "transparent");
+            }
+        })
+    </script>
+</body>
+</html>
